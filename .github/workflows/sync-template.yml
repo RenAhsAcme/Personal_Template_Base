@@ -50,17 +50,6 @@ jobs:
         cd downstream
         git checkout -B template-sync origin/main
   
-    - name: Commit changes
-      run: |
-        cd downstream
-        git add .
-        git commit -m "chore: sync template" || echo "No changes"
-  
-    - name: Push branch
-      run: |
-        cd downstream
-        git push origin template-sync --force
-  
     - name: Create PR
       uses: peter-evans/create-pull-request@v6
       with:
