@@ -2,10 +2,10 @@ name: Feature Request
 description: I propose a new feature, but I don't have the ability or energy to implement it at the moment.
 title: "feature: 实现更长的生命周期  Feature: Enables a longer lifecycle"
 labels: ["改进 enhancement", "English"]
-type: 特性
 body:
   - type: markdown
     attributes:
+      value: |
         
         > [!important]
         > If you want to propose **multiple features**, please create a separate issue for each feature.
@@ -14,7 +14,7 @@ body:
     id: checklist
     attributes:
       label: Checklist
-      description: Before submitting an issue, please check the following:
+      description: "Before submitting an issue, please check the following:"
       options:
         - label: I have reviewed all ongoing development branches (usually dev) and PRs, and confirmed that this requirement is either not being implemented or has already been implemented. I have also searched the [Issues](https://github.com/RenAhsAcme/Personal_Template_Base/issues) and confirmed that this issue has not been reported.
           required: true

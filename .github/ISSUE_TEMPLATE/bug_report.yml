@@ -2,7 +2,6 @@ name: Bug 反馈 (Chinese Ver.)
 description: 在使用本项目的过程中遇到了 Bug，且我暂时没有能力或精力解决。
 title: "bug: 某数组访问发生越界  bug: An array access went out of bounds."
 labels: ["bug 漏洞", "中文 Chinese"]
-type: Bug
 body:
   - type: markdown
     attributes:
