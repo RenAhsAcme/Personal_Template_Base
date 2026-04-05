@@ -2,10 +2,9 @@ name: 功能请求 (Chinese Ver.)
 description: 提出一项新的功能，且我暂时没有能力或精力实现。
 title: "feature: 实现更长的生命周期  Feature: Enables a longer lifecycle"
 labels: ["改进 enhancement", "中文 Chinese"]
-type: 特性
 body:
   - type: markdown
-    attributes:
+    attributes: |
         
         > [!important]
         > 重要：如果您想要提出 **多项功能**，请为每一个功能开一个单独的 issue。
