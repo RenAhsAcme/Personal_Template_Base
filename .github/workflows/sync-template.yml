@@ -45,9 +45,9 @@ jobs:
       run: |
         rsync -av \
           --exclude '.git' \
-          --exclude '.template' \
           --exclude 'README.md' \
-          downstream/.template/ downstream/
+          --exclude '.github/workflows' \ 
+          ./ downstream/
   
     - name: Create branch
       run: |
