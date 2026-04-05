@@ -38,7 +38,7 @@ jobs:
   
     - name: Sync template files
       run: |
-        rsync -av --delete\
+        rsync -av --delete \
           --exclude '.git' \
           --exclude 'README.md' \
           --exclude '.github/workflows' \
@@ -48,7 +48,7 @@ jobs:
     - name: Create branch
       run: |
         cd downstream
-        git checkout -B template-sync
+        git checkout -B template-sync origin/main
   
     - name: Commit changes
       run: |
