@@ -36,17 +36,12 @@ jobs:
         git remote add upstream https://github.com/RenAhsAcme/Personal_Template_Base.git || true
         git fetch upstream
   
-    - name: Pull subtree
-      run: |
-        cd downstream
-        git subtree pull --prefix=.template upstream main --squash || true
-  
     - name: Sync template files
       run: |
-        rsync -av \
+        rsync -av --delete\
           --exclude '.git' \
           --exclude 'README.md' \
-          --exclude '.github/workflows' \ 
+          --exclude '.github/workflows' \
           ./ downstream/
   
     - name: Create branch
