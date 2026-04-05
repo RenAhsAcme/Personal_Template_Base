@@ -5,7 +5,7 @@ labels: ["改进 enhancement", "中文 Chinese"]
 body:
   - type: markdown
     attributes: 
-      values: |
+      value: |
         
         > [!important]
         > 重要：如果您想要提出 **多项功能**，请为每一个功能开一个单独的 issue。
