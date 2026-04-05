@@ -1,0 +1,77 @@
+name: Sync Template to Multiple Repos
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo:
+          - RenAhsAcme/SYSU-Network-Solution
+          - RenAhsAcme/NCRE-III-Linux
+          - RenAhsAcme/FP_Copilot_KeyboardTool
+          - RenAhsAcme/ZenlessZoneZero_MusicVisualizer
+          - RenAhsAcme/FP-Tools
+
+    steps:
+    - name: Checkout template repo
+      uses: actions/checkout@v4
+
+    - name: Clone downstream repo
+      run: |
+        git clone https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/${{ matrix.repo }}.git downstream
+
+    - name: Setup Git
+      run: |
+        git config --global user.name "template-bot"
+        git config --global user.email "template-bot@users.noreply.github.com"
+
+    - name: Add upstream
+      run: |
+        cd downstream
+        git remote add upstream https://github.com/RenAhsAcme/Personal_Template_Base.git || true
+        git fetch upstream
+  
+    - name: Pull subtree
+      run: |
+        cd downstream
+        git subtree pull --prefix=.template upstream main --squash || true
+  
+    - name: Sync template files
+      run: |
+        rsync -av \
+          --exclude '.git' \
+          --exclude '.template' \
+          --exclude 'README.md' \
+          downstream/.template/ downstream/
+  
+    - name: Create branch
+      run: |
+        cd downstream
+        git checkout -B template-sync
+  
+    - name: Commit changes
+      run: |
+        cd downstream
+        git add .
+        git commit -m "chore: sync template" || echo "No changes"
+  
+    - name: Push branch
+      run: |
+        cd downstream
+        git push origin template-sync --force
+  
+    - name: Create PR
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.SYNC_TOKEN }}
+        path: downstream
+        branch: template-sync
+        base: main
+        title: "chore: sync template updates"
+        body: |
+          Auto-sync from template repository.
