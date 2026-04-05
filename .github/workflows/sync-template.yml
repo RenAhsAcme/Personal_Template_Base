@@ -38,7 +38,7 @@ jobs:
   
     - name: Sync template files
       run: |
-        rsync -av --delete \
+        rsync -av \
           --exclude '.git' \
           --exclude 'README.md' \
           --exclude '.github/workflows' \
