@@ -6,6 +6,7 @@ type: 特性
 body:
   - type: markdown
     attributes:
+      value: |
         
         > [!important]
         > If you want to propose **multiple features**, please create a separate issue for each feature.
