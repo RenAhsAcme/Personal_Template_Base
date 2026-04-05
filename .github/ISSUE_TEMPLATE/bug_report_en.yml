@@ -2,7 +2,6 @@ name: Bug Report
 description: I encountered a bug while using this project, and I do not have the ability or energy to fix it at the moment.
 title: "bug: 某数组访问发生越界  bug: An array access went out of bounds."
 labels: ["bug 漏洞", "English"]
-type: Bug
 body:
   - type: markdown
     attributes:
@@ -16,7 +15,7 @@ body:
     id: checklist
     attributes:
       label: Checklist
-      description: Before submitting an issue, please check the following:
+      description: "Before submitting an issue, please check the following:"
       options:
         - label: I have updated to the latest release version for testing and checked all ongoing development branches (usually dev), confirming that the issue is still reproducible. I have also searched the [Issues](https://github.com/RenAhsAcme/Personal_Template_Base/issues) and confirmed that no one has reported this issue.
           required: true
